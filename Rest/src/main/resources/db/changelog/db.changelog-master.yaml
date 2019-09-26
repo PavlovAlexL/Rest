@@ -1,2 +1,56 @@
 databaseChangeLog:
   - logicalFilePath: db/changelog/db.changelog-master.yaml
+  - changeSet:
+      id: 1
+      author: Aleksandr_Pavlov
+      changes:
+        - createTable:
+            tableName: organisation
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: Идентификатор
+              - column:
+                  name: version
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: full_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: inn
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: kpp
+                  type: varchar(9)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: address
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: phone
+                  type: varchar(20)
+              - column:
+                  name: is_active
+                  type: boolean
+
+
+
