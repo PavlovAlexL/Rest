@@ -1,6 +1,6 @@
 package com.palex.Rest;
 
-import com.palex.Rest.view.ErrorView;
+import com.palex.Rest.view.ErrorResponseView;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +28,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return new ResponseEntity<Object>(new ErrorView(ex.getMessage()), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Object>(new ErrorResponseView(ex.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
     /**
@@ -42,7 +42,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return new ResponseEntity<Object>(new ErrorView(ex.getMessage()), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Object>(new ErrorResponseView(ex.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
     /**
@@ -52,7 +52,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
      * @return - Ответ клиенту.
      */
     @ExceptionHandler(Exception.class)
-    private ErrorView handleOtherException(Exception ex) {
-        return new ErrorView(ex.getMessage());
+    private ErrorResponseView handleOtherException(Exception ex) {
+        return new ErrorResponseView(ex.getMessage());
     }
 }

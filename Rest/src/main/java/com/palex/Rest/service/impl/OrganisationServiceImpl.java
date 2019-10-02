@@ -10,9 +10,12 @@ import com.palex.Rest.view.Organisation.OrganisationSaveFilterView;
 import com.palex.Rest.view.Organisation.OrganisationUpdateFilterView;
 import com.palex.Rest.view.Organisation.OrganisationView;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
+
+/**
+ * Реализация сервисного слоя для объектов организации.
+ */
 
 @Service
 public class OrganisationServiceImpl implements OrganisationService {

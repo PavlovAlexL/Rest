@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * ResponseView для валидации ввода на обновление Organisation.
+ * RequestView для валидации ввода на обновление Organisation.
  */
 
 public class OrganisationUpdateFilterView {

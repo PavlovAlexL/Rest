@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Фильтр для Organisation/list
+ * RequestView для Organisation/list
  */
 
 public class OrganisationListFilterView {

@@ -6,7 +6,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
- * ResponseView для валидации ввода на сохранение Organisation.
+ * RequestView для валидации ввода на сохранение Organisation.
  */
 
 public class OrganisationSaveFilterView {

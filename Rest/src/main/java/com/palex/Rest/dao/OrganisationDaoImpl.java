@@ -57,13 +57,14 @@ OrganisationDaoImpl implements OrganisationDao {
         organisationEntity.setName(organisationUpdateFilterView.getName());
         organisationEntity.setFullName(organisationUpdateFilterView.getFullName());
         organisationEntity.setInn(organisationUpdateFilterView.getInn());
-        organisationEntity.setKpp(organisationEntity.getKpp());
-        organisationEntity.setAddress(organisationEntity.getAddress());
+        organisationEntity.setKpp(organisationUpdateFilterView.getKpp());
+        organisationEntity.setAddress(organisationUpdateFilterView.getAddress());
+
         if (organisationEntity.getPhone() != null) {
-            organisationEntity.setPhone(organisationEntity.getPhone());
+            organisationEntity.setPhone(organisationUpdateFilterView.getPhone());
         }
         if (organisationEntity.getIsActive() != null) {
-            organisationEntity.setIsActive(organisationEntity.getIsActive());
+            organisationEntity.setIsActive(Boolean.parseBoolean(organisationUpdateFilterView.getIsActive()));
         }
         em.merge(organisationEntity);
     }

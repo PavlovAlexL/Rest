@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 /**
- * Сущность Organisation
+ * Сущность Organisation.
  */
 @Entity
 @Table(name = "Organisation")
@@ -23,28 +23,52 @@ public class OrganisationEntity {
     @Column(name = "id")
     private Long id;
 
+    /**
+     * служебное поле Hibernate/
+     */
     @Version
     @Column(name = "version")
     private Long version;
 
+    /**
+     * Наименование
+     */
     @Column(name = "name")
     private String name;
 
+    /**
+     * Полное наименование.
+     */
     @Column(name = "full_name")
     private String fullName;
 
+    /**
+     * ИНН.
+     */
     @Column(name = "inn")
     private String inn;
 
+    /**
+     * КПП.
+     */
     @Column(name = "kpp")
     private String kpp;
 
+    /**
+     * Адрес.
+     */
     @Column(name = "address")
     private String address;
 
+    /**
+     * Телефон.
+     */
     @Column(name = "phone")
     private String phone;
 
+    /**
+     * Статус.
+     */
     @Column(name = "is_Active")
     private Boolean isActive;
 
