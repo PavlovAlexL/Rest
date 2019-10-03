@@ -1,5 +1,7 @@
 package com.palex.Rest.view.Organisation;
 
+import lombok.Getter;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -36,19 +38,13 @@ public class OrganisationSaveFilterView {
     @Size(min = 2, max = 50)
     public String address;
 
+    @Getter
     @Size(max = 20)
     public String phone;
 
+    @Getter
     @Size(max = 5)
     public String isActive;
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getIsActive() {
-        return isActive;
-    }
 
     public void setPhone(String phone) {
         if (phone != null & phone.length() == 0) {

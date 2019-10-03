@@ -1,5 +1,7 @@
 package com.palex.Rest.view.Organisation;
 
+import lombok.Getter;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -11,69 +13,47 @@ import javax.validation.constraints.Size;
 
 public class OrganisationUpdateFilterView {
 
+    @Getter
     @NotNull
     @Min(1)
     public Long id;
 
+    @Getter
     @NotNull
     @NotBlank
     @Size(min = 2, max = 20)
     public String name;
 
+    @Getter
     @NotNull
     @NotBlank
     @Size(min = 2, max = 50)
     public String fullName;
 
+    @Getter
     @NotNull
     @NotBlank
     @Size(min = 10, max = 10)
     public String inn;
 
+    @Getter
     @NotNull
     @NotBlank
     @Size(min = 9, max = 9)
     public String kpp;
 
+    @Getter
     @NotNull
     @NotBlank
     @Size(min = 2, max = 50)
     public String address;
 
+    @Getter
     @Size(max = 20)
     public String phone;
 
+    @Getter
+    @Size(max = 5)
     public String isActive;
 
-    public String getName() {
-        return name;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public String getInn() {
-        return inn;
-    }
-
-    public String getKpp() {
-        return kpp;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getIsActive() {
-        return isActive;
-    }
-
-    public Long getId() {
-        return id;
-    }
 }
