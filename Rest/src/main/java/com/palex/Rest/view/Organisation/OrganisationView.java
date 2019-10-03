@@ -7,6 +7,11 @@ package com.palex.Rest.view.Organisation;
 public class OrganisationView {
 
     /**
+     * UUID
+     */
+    public Long id;
+
+    /**
      * Наименование.
      */
     public String name;

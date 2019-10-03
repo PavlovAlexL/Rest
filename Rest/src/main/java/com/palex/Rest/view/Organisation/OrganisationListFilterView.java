@@ -2,6 +2,7 @@ package com.palex.Rest.view.Organisation;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -18,6 +19,7 @@ public class OrganisationListFilterView {
     @Size(max = 10)
     public String inn;
 
+    @Size(max = 5)
     public String isActive;
 
     public String getName() {
@@ -30,5 +32,35 @@ public class OrganisationListFilterView {
 
     public String getIsActive() {
         return isActive;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setInn(String inn) {
+        if(inn != null || inn.length() == 0){
+            this.inn = null;
+        } else  if (!inn.matches("[0-9]{10}")){
+            throw new RuntimeException("Not valid isActive string");
+        } else this.inn = inn;
+    }
+
+
+    public void setIsActive(String isActive) {
+        if(isActive == null || isActive.length() == 0){
+            this.isActive = null;
+        } else if(!isActive.matches("(true|false)")){
+            throw new RuntimeException("Not valid isActive string");
+        } else this.isActive = isActive;
+    }
+
+    @Override
+    public String toString() {
+        return "OrganisationListFilterView{" +
+                "name='" + name + '\'' +
+                ", inn='" + inn + '\'' +
+                ", isActive='" + isActive + '\'' +
+                '}';
     }
 }

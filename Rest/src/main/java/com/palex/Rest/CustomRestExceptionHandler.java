@@ -28,7 +28,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return new ResponseEntity<Object>(new ErrorResponseView(ex.getMessage()), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Object>(new ErrorResponseView("wrong input"), HttpStatus.BAD_REQUEST);
     }
 
     /**
@@ -42,7 +42,18 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return new ResponseEntity<Object>(new ErrorResponseView(ex.getMessage()), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Object>(new ErrorResponseView(ex.getMessage().split(":")[0]), HttpStatus.BAD_REQUEST);
+
+    }
+
+    /**
+     * Перехват ошибки обращений к не существующим объектам.
+     * @param ex - объект исключения.
+     * @return - ответ клиенту.
+     */
+    @ExceptionHandler(NullPointerException.class)
+    private ErrorResponseView handleNullPointerException(NullPointerException ex) {
+        return new ErrorResponseView("object is not exist");
     }
 
     /**

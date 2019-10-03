@@ -24,16 +24,19 @@ OrganisationDaoImpl implements OrganisationDao {
 
     @Override
     public List<OrganisationEntity> getList(OrganisationListFilterView organisationListFilterView) {
+
         String name = organisationListFilterView.getName();
         String inn = organisationListFilterView.getInn();
-        Boolean isActive = Boolean.parseBoolean(organisationListFilterView.getIsActive());
+        String isActive = organisationListFilterView.getIsActive();
+        System.out.println(name);
+        System.out.println(inn);
+        System.out.println(isActive);
 
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<OrganisationEntity> query = cb.createQuery(OrganisationEntity.class);
         Root<OrganisationEntity> organisationEntityRoot = query.from(OrganisationEntity.class);
         Predicate predicate = cb.conjunction();
         predicate = cb.and(predicate, cb.equal(organisationEntityRoot.get("name"), name));
-
         if (inn != null) {
             predicate = cb.and(predicate, cb.equal(organisationEntityRoot.get("inn"), inn));
         }
@@ -42,6 +45,7 @@ OrganisationDaoImpl implements OrganisationDao {
         }
         query.where(predicate);
         return em.createQuery(query).getResultList();
+
     }
 
     @Override

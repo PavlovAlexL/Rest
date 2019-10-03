@@ -39,6 +39,30 @@ public class OrganisationSaveFilterView {
     @Size(max = 20)
     public String phone;
 
+    @Size(max = 5)
     public String isActive;
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getIsActive() {
+        return isActive;
+    }
+
+    public void setPhone(String phone) {
+        if (phone != null & phone.length() == 0) {
+            this.phone = null;
+        } else if (phone.matches("^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$")) {
+            this.phone = phone;
+        } else throw new RuntimeException("Not valid phone string");
+    }
+
+    public void setIsActive(String isActive) {
+        if(isActive == null || isActive.length() == 0){
+            this.isActive = null;
+        } else if(!isActive.matches("(true|false)")){
+            throw new RuntimeException("Not valid isActive string");
+        } else this.isActive = isActive;
+    }
 }
