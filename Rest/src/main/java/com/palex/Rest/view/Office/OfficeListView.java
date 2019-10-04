@@ -1,10 +1,10 @@
-package com.palex.Rest.view.Organisation;
+package com.palex.Rest.view.Office;
 
 /**
- * ResponseView для списка результатов Organisation
+ * Представление для списка Office.
  */
 
-public class OrganisationListView {
+public class OfficeListView {
 
     /**
      * UUID

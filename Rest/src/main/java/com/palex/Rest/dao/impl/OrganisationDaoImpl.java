@@ -1,5 +1,6 @@
-package com.palex.Rest.dao;
+package com.palex.Rest.dao.impl;
 
+import com.palex.Rest.dao.OrganisationDao;
 import com.palex.Rest.model.OrganisationEntity;
 import com.palex.Rest.view.Organisation.OrganisationListFilterView;
 import com.palex.Rest.view.Organisation.OrganisationUpdateFilterView;
@@ -28,9 +29,6 @@ OrganisationDaoImpl implements OrganisationDao {
         String name = organisationListFilterView.getName();
         String inn = organisationListFilterView.getInn();
         String isActive = organisationListFilterView.getIsActive();
-        System.out.println(name);
-        System.out.println(inn);
-        System.out.println(isActive);
 
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<OrganisationEntity> query = cb.createQuery(OrganisationEntity.class);

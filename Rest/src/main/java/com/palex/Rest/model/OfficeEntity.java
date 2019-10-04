@@ -3,21 +3,23 @@ package com.palex.Rest.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
 /**
- * Сущность Organisation.
+ * Сущность Office.
  */
 @Entity
-@Table(name = "Organisation")
-public class OrganisationEntity {
+@Table(name = "Office")
+public class OfficeEntity {
 
     /**
      * UUID
@@ -36,6 +38,12 @@ public class OrganisationEntity {
     @Column(name = "version")
     private Long version;
 
+    @Getter
+    @Setter
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn (name = "org_id", nullable = false)
+    private OrganisationEntity orgId;
+
     /**
      * Наименование
      */
@@ -43,30 +51,6 @@ public class OrganisationEntity {
     @Setter
     @Column(name = "name")
     private String name;
-
-    /**
-     * Полное наименование.
-     */
-    @Getter
-    @Setter
-    @Column(name = "full_name")
-    private String fullName;
-
-    /**
-     * ИНН.
-     */
-    @Getter
-    @Setter
-    @Column(name = "inn")
-    private String inn;
-
-    /**
-     * КПП.
-     */
-    @Getter
-    @Setter
-    @Column(name = "kpp")
-    private String kpp;
 
     /**
      * Адрес.
@@ -92,6 +76,6 @@ public class OrganisationEntity {
     @Column(name = "is_Active")
     private Boolean isActive;
 
-    public OrganisationEntity() {
+    public OfficeEntity() {
     }
 }

@@ -2,6 +2,7 @@ package com.palex.Rest.dao;
 
 import com.palex.Rest.model.OrganisationEntity;
 import com.palex.Rest.view.Organisation.OrganisationListFilterView;
+import com.palex.Rest.view.Organisation.OrganisationSaveFilterView;
 import com.palex.Rest.view.Organisation.OrganisationUpdateFilterView;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public interface OrganisationDao {
 
     /**
      * Запрос на сохранение объекта.
-     * @param organisationSaveFilterView Представление объекта для соъранения.
+     * @param organisationEntity Представление объекта для соъранения.
      */
     void save(OrganisationEntity organisationEntity);
 

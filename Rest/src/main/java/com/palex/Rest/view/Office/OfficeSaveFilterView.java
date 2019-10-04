@@ -1,4 +1,4 @@
-package com.palex.Rest.view.Organisation;
+package com.palex.Rest.view.Office;
 
 import lombok.Getter;
 
@@ -8,54 +8,25 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * RequestView для валидации ввода на обновление Organisation.
+ * Представление Office.
  */
 
-public class OrganisationUpdateFilterView {
+public class OfficeSaveFilterView {
 
     /**
-     * UUID.
+     * UUID Организации, которой принадлежит офис.
      */
     @Getter
     @NotNull
     @Min(1)
-    public Long id;
+    public Long orgId;
 
     /**
      * Наименование.
      */
     @Getter
-    @NotNull
-    @NotBlank
     @Size(min = 2, max = 20)
     public String name;
-
-    /**
-     * Полное наименование.
-     */
-    @Getter
-    @NotNull
-    @NotBlank
-    @Size(min = 2, max = 50)
-    public String fullName;
-
-    /**
-     * ИНН.
-     */
-    @Getter
-    @NotNull
-    @NotBlank
-    @Size(min = 10, max = 10)
-    public String inn;
-
-    /**
-     * КПП.
-     */
-    @Getter
-    @NotNull
-    @NotBlank
-    @Size(min = 9, max = 9)
-    public String kpp;
 
     /**
      * Адрес.
