@@ -9,13 +9,4 @@ CREATE TABLE IF NOT EXISTS Organisation (
   phone       VARCHAR(20) ,
   is_Active   BOOLEAN
 );
-COMMENT ON TABLE  Organisation IS 'Организация';
-COMMENT ON COLUMN Organisation.id IS 'id';
-COMMENT ON COLUMN Organisation.version IS 'Служебное поле hibernate, должно быть NOT NULL';
-COMMENT ON COLUMN Organisation.name IS 'Сокращенное наименование';
-COMMENT ON COLUMN Organisation.full_name IS 'Полное наименование';
-COMMENT ON COLUMN Organisation.inn IS 'ИНН организации';
-COMMENT ON COLUMN Organisation.kpp IS 'КПП организации';
-COMMENT ON COLUMN Organisation.address IS 'Адрес';
-COMMENT ON COLUMN Organisation.phone IS 'Телефон';
-COMMENT ON COLUMN Organisation.is_Active IS 'Статус';
+
