@@ -1,6 +1,6 @@
 package com.palex.Rest;
 
-import com.palex.Rest.view.ErrorResponseView;
+import com.palex.Rest.view.ErrorView;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +28,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return new ResponseEntity<Object>(new ErrorResponseView("wrong input"), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Object>(new ErrorView("wrong input"), HttpStatus.BAD_REQUEST);
     }
 
     /**
@@ -42,7 +42,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return new ResponseEntity<Object>(new ErrorResponseView(ex.getMessage().split(":")[0]), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Object>(new ErrorView(ex.getMessage().split(":")[0]), HttpStatus.BAD_REQUEST);
 
     }
 
@@ -52,8 +52,8 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
      * @return - ответ клиенту.
      */
     @ExceptionHandler(NullPointerException.class)
-    private ErrorResponseView handleNullPointerException(NullPointerException ex) {
-        return new ErrorResponseView("object is not exist");
+    private ErrorView handleNullPointerException(NullPointerException ex) {
+        return new ErrorView("object is not exist");
     }
 
     /**
@@ -63,7 +63,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
      * @return - Ответ клиенту.
      */
     @ExceptionHandler(Exception.class)
-    private ErrorResponseView handleOtherException(Exception ex) {
-        return new ErrorResponseView(ex.getMessage());
+    private ErrorView handleOtherException(Exception ex) {
+        return new ErrorView(ex.getMessage());
     }
 }

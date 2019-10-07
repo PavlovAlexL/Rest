@@ -32,16 +32,14 @@ public class OrganisationServiceImpl implements OrganisationService {
     @Transactional
     public List<OrganisationListView> getList(OrganisationListFilterView organisationListFilterView) {
         List<OrganisationEntity> organisationEntityList = dao.getList(organisationListFilterView);
-        List<OrganisationListView> organisationListViews = facade.mapAsList(organisationEntityList, OrganisationListView.class);
-        return organisationListViews;
+        return facade.mapAsList(organisationEntityList, OrganisationListView.class);
     }
 
     @Override
     @Transactional
     public OrganisationView getById(Long id) {
         OrganisationEntity organisationEntity = dao.getById(id);
-        OrganisationView organisationView = facade.map(organisationEntity, OrganisationView.class);
-        return organisationView;
+        return facade.map(organisationEntity, OrganisationView.class);
     }
 
     @Override
@@ -55,5 +53,11 @@ public class OrganisationServiceImpl implements OrganisationService {
     public void save(OrganisationSaveFilterView organisationSaveFilterView) {
         OrganisationEntity organisationEntity = facade.map(organisationSaveFilterView, OrganisationEntity.class);
         dao.save(organisationEntity);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Long id) {
+        dao.delete(id);
     }
 }

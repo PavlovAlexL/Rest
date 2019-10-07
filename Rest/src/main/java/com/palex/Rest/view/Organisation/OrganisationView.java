@@ -9,7 +9,7 @@ public class OrganisationView {
     /**
      * UUID
      */
-    public Long id;
+    public String id;
 
     /**
      * Наименование.

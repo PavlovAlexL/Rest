@@ -61,4 +61,27 @@ public class OrganisationSaveFilterView {
             throw new RuntimeException("Not valid isActive string");
         } else this.isActive = isActive;
     }
+
+    public OrganisationSaveFilterView() {
+    }
+
+    public OrganisationSaveFilterView(@NotNull @NotBlank @Size(min = 2, max = 20) String name, @NotNull @NotBlank @Size(min = 2, max = 50) String fullName, @NotNull @NotBlank @Pattern(regexp = "([0-9]{10})?") String inn, @NotNull @NotBlank @Pattern(regexp = "([0-9]{9})?") String kpp, @NotNull @NotBlank @Size(min = 2, max = 50) String address, @Size(max = 20) String phone, @Size(max = 5) String isActive) {
+        this.name = name;
+        this.fullName = fullName;
+        this.inn = inn;
+        this.kpp = kpp;
+        this.address = address;
+        this.phone = phone;
+        this.isActive = isActive;
+    }
+
+    @Override
+    public String toString() {
+        try {
+            return new com.fasterxml.jackson.databind.ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(this);
+        } catch (com.fasterxml.jackson.core.JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

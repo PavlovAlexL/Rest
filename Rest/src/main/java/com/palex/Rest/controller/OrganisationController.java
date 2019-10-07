@@ -5,6 +5,7 @@ import com.palex.Rest.view.Organisation.OrganisationListFilterView;
 import com.palex.Rest.view.Organisation.OrganisationSaveFilterView;
 import com.palex.Rest.view.Organisation.OrganisationUpdateFilterView;
 import com.palex.Rest.view.ResponseView;
+import com.palex.Rest.view.SuccessView;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,9 +56,9 @@ public class OrganisationController {
      * @param organisationUpdateFilterView Обновленные данные организации.
      */
     @PostMapping("/update")
-    public ResponseView update(@Valid @RequestBody OrganisationUpdateFilterView organisationUpdateFilterView) {
+    public SuccessView update(@Valid @RequestBody OrganisationUpdateFilterView organisationUpdateFilterView) {
         service.update(organisationUpdateFilterView);
-        return new ResponseView();
+        return new SuccessView();
     }
 
     /**
@@ -66,9 +67,20 @@ public class OrganisationController {
      * @param organisationSaveFilterView Данные организации.
      */
     @PostMapping("/save")
-    public ResponseView save(@Valid @RequestBody OrganisationSaveFilterView organisationSaveFilterView) {
+    public SuccessView save(@Valid @RequestBody OrganisationSaveFilterView organisationSaveFilterView) {
         service.save(organisationSaveFilterView);
-        return new ResponseView();
+        return new SuccessView();
+    }
+
+    /**
+     * Удалить организацию.
+     *
+     * @param id идентификатор.
+     */
+    @PostMapping("/delete/{id:\\d+}")
+    public SuccessView delete(@PathVariable Long id) {
+        service.delete(id);
+        return new SuccessView();
     }
 
 }

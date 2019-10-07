@@ -32,8 +32,14 @@ public interface OrganisationDao {
 
     /**
      * Запрос на сохранение объекта.
-     * @param organisationSaveFilterView Представление объекта для соъранения.
+     * @param organisationEntity Представление объекта для сохранения.
      */
     void save(OrganisationEntity organisationEntity);
+
+    /**
+     * Запрос на удаление по UUID.
+     * @param id UUID.
+     */
+    void delete (Long id);
 
 }

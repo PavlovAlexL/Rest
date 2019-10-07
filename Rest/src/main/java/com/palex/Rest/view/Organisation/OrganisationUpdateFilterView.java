@@ -16,7 +16,7 @@ public class OrganisationUpdateFilterView {
     @Getter
     @NotNull
     @Min(1)
-    public Long id;
+    public String id;
 
     @Getter
     @NotNull
@@ -56,4 +56,13 @@ public class OrganisationUpdateFilterView {
     @Size(max = 5)
     public String isActive;
 
+    @Override
+    public String toString() {
+        try {
+            return new com.fasterxml.jackson.databind.ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(this);
+        } catch (com.fasterxml.jackson.core.JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

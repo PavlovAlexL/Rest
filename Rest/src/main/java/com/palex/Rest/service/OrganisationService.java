@@ -39,4 +39,10 @@ public interface OrganisationService {
      */
     void save(OrganisationSaveFilterView organisationSaveFilterView);
 
+    /**
+     * Запрос на удаление по UUID.
+     * @param id UUID.
+     */
+    void delete(Long id);
+
 }

@@ -1,3 +1,6 @@
+--liquibase formatted sql
+--changeset Organisations_create_sql:1
+
 CREATE TABLE IF NOT EXISTS Organisation (
   id          INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
   version     INTEGER NOT NULL DEFAULT 1,
@@ -19,3 +22,5 @@ COMMENT ON COLUMN Organisation.kpp IS 'КПП организации';
 COMMENT ON COLUMN Organisation.address IS 'Адрес';
 COMMENT ON COLUMN Organisation.phone IS 'Телефон';
 COMMENT ON COLUMN Organisation.is_Active IS 'Статус';
+
+--rollback drop table Organisation;

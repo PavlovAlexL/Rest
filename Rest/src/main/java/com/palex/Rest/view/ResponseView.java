@@ -17,11 +17,4 @@ public class ResponseView {
     public ResponseView(Object data) {
         this.data = data;
     }
-
-    /**
-     * Конструктор для передачи статуста успешной операции.
-     */
-    public ResponseView() {
-        this.data = "Success";
-    }
 }
